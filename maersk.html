@@ -1,0 +1,173 @@
+
+
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            body{
+                background-color: #BFBFBF;
+            }
+            #RandomSortArray {
+                width: 60%;
+    height: 168px;
+    float: left;
+}
+
+div {
+    float: left;
+    width: 130px;
+    height: 120px;
+    text-align: center;
+    /* padding-top: 25px; */
+    color: fff;
+    padding-bottom: 21px;
+    font-size: 70px;
+}
+#shuffle,#sort{
+    width: 125px;
+    height: 40px;
+    font-size: 20px;
+    margin-left: 30px;
+    background-color: #72c3dc;
+    border-color: rgb(114, 195, 220);
+    border-radius: 10px;
+}
+.randomsort_input{
+    width: 100%;
+}
+.input_button{
+    width: 40%;
+}
+.randomsort_button{
+    width: 45%;
+}
+#RandomSortArray div:first-child {
+  background-color: #000000;
+}
+#RandomSortArray div:nth-child(2) {
+  background-color: #2B8EAD;
+}
+#RandomSortArray div:nth-child(3) {
+  background-color: #333333;
+}
+#RandomSortArray div:nth-child(4) {
+  background-color: #6F98A8;
+}
+#RandomSortArray div:nth-child(5) {
+  background-color: #72C3DC;
+}
+#RandomSortArray div:nth-child(6) {
+  background-color: #FFFFFF;
+}
+#RandomSortArray div:nth-child(7) {
+  background-color: #BFBFBF;
+}
+#RandomSortArray div:nth-child(8) {
+  background-color: #EFEFEF;
+}
+#RandomSortArray div:nth-child(9) {
+  background-color: #2F454E;
+}
+.input_button2{
+        display: none;
+    }
+@media only screen and (max-width: 992px){
+    .input_button1{
+        display: none;
+    }
+    .input_button2 {
+    display: block;
+}
+    #RandomSortArray {
+    width: 100%;
+}
+.randomsort_input {
+    width: 100%;
+}
+div {
+    width: 100%;
+}
+.randomsort_button{
+    width: 100%;
+}
+.input_button {
+    width: 100%;
+}
+}
+        </style>
+        
+    </head>
+<body>
+
+   
+
+
+<script language="javascript" type="text/javascript">
+    var n = 9;
+    var numbers = new Array(n);
+
+    for (i = 1; i <= n; i = i + 1) {
+        numbers[i] = i;
+    }
+
+    // document.write('numbers are displayed as inserted in order' + '<br />');
+    // for (i = 1; i <= n; i = i + 1) {
+    //     document.write(numbers[i] + '<br />');
+    // }
+
+    function random_sort(a, b) {
+        return Math.random() - 0.5;
+    }
+
+    function sort_array_randomly() {
+        RandomSortArray.innerHTML = '';
+
+        randomsort.style.visibility = "visible";
+        defaultsort.style.visibility = "collapse";
+
+        numbers.sort(random_sort);
+
+        for (i = 0; i < n; i = i + 1) {
+            RandomSortArray.innerHTML = RandomSortArray.innerHTML +'<div>'+ numbers[i]+'</div>' ;
+        }
+    }
+
+    function sort_default() {
+        RandomSortArray.innerHTML = '';
+
+        randomsort.style.visibility = "collapse";
+        defaultsort.style.visibility = "visible";
+
+        numbers.sort();
+
+        for (i = 0; i < n; i = i + 1) {
+            RandomSortArray.innerHTML = RandomSortArray.innerHTML+'<div>' + numbers[i]+'</div>';
+        }
+    }
+    //-->
+</script>
+<div class="randomsort_input">
+    <div class="input_button  input_button2">
+        <input type="button" id="shuffle" onclick="javascript: sort_array_randomly(); return (false);" value="Shuffle" />
+        <input type="button" id="sort" onclick="javascript: sort_default(); return (false);" value="Sort" />
+    </div>
+<div class="randomsort_button random_text">
+<p id="randomsort" style="visibility:visible"></p>
+<p id="defaultsort" style="visibility:visible"></p>    
+<div id="RandomSortArray">
+</div>
+</div>
+<div class="input_button input_button1">
+    <input type="button" id="shuffle" onclick="javascript: sort_array_randomly(); return (false);" value="Shuffle" />
+    <input type="button" id="sort" onclick="javascript: sort_default(); return (false);" value="Sort" />
+</div>
+</div>
+<script type="text/javascript">
+    sort_array_randomly();
+</script>
+
+</body>
+</html>
